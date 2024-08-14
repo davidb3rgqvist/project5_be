@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import re
 import dj_database_url
 
 # Base directory
@@ -47,36 +46,17 @@ REST_AUTH_SERIALIZERS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = 'DEV' in os.environ
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '127.0.0.1',
     'localhost',
-    'https://davidb3rgqvi-project5be-x22c0p5fsn8.ws.codeinstitute-ide.net/',
-    'https://healthhub-be-462e201f4989.herokuapp.com/'
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
+CORS_ALLOWED_ORIGIN = [
+    os.environ.get('CLIENT_ORIGIN')
+]
 
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(
-        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE
-    ).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
-
-CORS_ALLOW_CREDENTIALS = True
-
-
-CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$",    r"^https://.*\.gitpod\.io$",]
-
-
-CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 INSTALLED_APPS = [
