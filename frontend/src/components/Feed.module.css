@@ -1,0 +1,29 @@
+.feed {
+    width: 55%;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .workoutCard {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .workoutImage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .workoutCard h3 {
+    margin-bottom: 10px;
+  }
+  
+  .workoutCard p {
+    color: #555;
+  }
+  

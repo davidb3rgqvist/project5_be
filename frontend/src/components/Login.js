@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Auth.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,18 +18,19 @@ function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
 
     try {
-      const csrfToken = getCSRFToken();
+      const csrfToken = getCSRFToken(); // Get the CSRF token from cookies
       const response = await fetch('/api/auth/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRFToken': csrfToken,
+          'X-CSRFToken': csrfToken, // Include CSRF Token in the request headers
         },
         body: JSON.stringify({ username, password }),
       });
@@ -40,6 +41,7 @@ function Login({ setIsAuthenticated }) {
 
       setIsAuthenticated(true);
       alert('Login successful');
+      navigate('/workouts'); // Redirect to the workouts page
 
     } catch (error) {
       setError(error.message);
