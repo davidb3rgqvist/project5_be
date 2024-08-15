@@ -7,5 +7,5 @@ router.register(r'workouts', WorkoutViewSet)
 router.register(r'workouts/(?P<workout_id>\d+)/comments', WorkoutCommentViewSet, basename='workout-comments')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
 ]

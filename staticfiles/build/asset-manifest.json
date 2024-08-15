@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cdcc4a3f.chunk.css",
+    "main.js": "/static/js/main.85139605.chunk.js",
+    "main.js.map": "/static/js/main.85139605.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.52d2996c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.52d2996c.js.map",
+    "static/css/2.f28e44d1.chunk.css": "/static/css/2.f28e44d1.chunk.css",
+    "static/js/2.a029f324.chunk.js": "/static/js/2.a029f324.chunk.js",
+    "static/js/2.a029f324.chunk.js.map": "/static/js/2.a029f324.chunk.js.map",
+    "static/js/3.5ce5e43f.chunk.js": "/static/js/3.5ce5e43f.chunk.js",
+    "static/js/3.5ce5e43f.chunk.js.map": "/static/js/3.5ce5e43f.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f28e44d1.chunk.css.map": "/static/css/2.f28e44d1.chunk.css.map",
+    "static/css/main.cdcc4a3f.chunk.css.map": "/static/css/main.cdcc4a3f.chunk.css.map",
+    "static/js/2.a029f324.chunk.js.LICENSE.txt": "/static/js/2.a029f324.chunk.js.LICENSE.txt",
+    "static/media/Auth.module.css": "/static/media/auth-image.8a200e81.jpg",
+    "static/media/create-workout.b7b20529.jpg": "/static/media/create-workout.b7b20529.jpg",
+    "static/media/follow-pt.8b865a39.jpg": "/static/media/follow-pt.8b865a39.jpg",
+    "static/media/landing-bg.3f6a3979.jpg": "/static/media/landing-bg.3f6a3979.jpg",
+    "static/media/logo.50dc64f5.png": "/static/media/logo.50dc64f5.png",
+    "static/media/train-anywhere.58525b7b.jpg": "/static/media/train-anywhere.58525b7b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52d2996c.js",
+    "static/css/2.f28e44d1.chunk.css",
+    "static/js/2.a029f324.chunk.js",
+    "static/css/main.cdcc4a3f.chunk.css",
+    "static/js/main.85139605.chunk.js"
+  ]
+}

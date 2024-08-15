@@ -9,20 +9,16 @@ from rest_framework.pagination import PageNumberPagination
 from django.db.models import Count
 
 class WorkoutViewSet(viewsets.ModelViewSet):
-    queryset = Workout.objects.annotate(
-        num_likes=Count('likes')
-    )
+    queryset = Workout.objects.annotate(num_likes=Count('likes'))
     serializer_class = WorkoutSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     pagination_class = PageNumberPagination
 
     def get_queryset(self):
-       
-        user = self.request.user
-        if user.is_authenticated:
-            return Workout.objects.filter(user=user).annotate(num_likes=Count('likes'))
+        if self.request.user.is_authenticated:
+            return Workout.objects.annotate(num_likes=Count('likes'))
         return Workout.objects.none()
-
+    
 
 class WorkoutCommentViewSet(viewsets.ModelViewSet):
     """

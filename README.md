@@ -1,271 +1,200 @@
-# Foorky
+# HealthHub
 
-Foorky is the ultimate web app for storing and managing all your recipes in one place. Whether you're a culinary enthusiast or a professional chef, Foorky helps you stay organized and focused during cooking sessions with its unique toggling feature. Say goodbye to scattered recipe cards – with Foorky, cooking has never been easier.
+HealthHub is a web app designed to empower users to create, share, and follow custom workout programs. Whether you're a fitness enthusiast, a personal trainer, or someone just starting out, HealthHub provides a platform to build personalized workout routines and share them with others. With HealthHub, you can not only track your progress but also discover new workout programs created by others in the community.
 
-- [Deployed page](https://project4-recipe-app-0bdc7c5f1779.herokuapp.com/)
+## Deployed Page
 
-![Responsive test](static/doc/responsive-test.png)
+[Visit HealthHub](#) (Add your deployed link here)
+[Repository](#) (https://github.com/davidb3rgqvist/project5_be)
+
+![Screenshot of the Responsive test](frontend/src/assets/doc/HealthHub-V-ID.png)
 
 ## Table of Contents
-  - [UX - Five Planes](#ux---five-planes)
-  - [Future Features](#future-features)
-  - [Technology Used](#technology-used)
-  - [Testing](#testing)
-  - [Development](#development)
-  - [Deployment](#deployment)
-  - [Credits](#credits)
+
+- [UX - Five Planes](#ux---five-planes)
+- [Future Features](#future-features)
+- [Technology Used](#technology-used)
+- [Testing](#testing)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
 ## UX - Five Planes
 
-### Strategy:
+### Strategy
 
-Foorky is a recipe management web app designed to streamline the organization and accessibility of culinary recipes. The focus is on providing users with a convenient platform to store, access, and manage their recipes, whether they are culinary enthusiasts or professional chefs.
+HealthHub is focused on enabling users to create, manage, and share their own workout programs. The platform is designed to foster a community where users can follow programs that suit their fitness goals and stay motivated by tracking their progress over time.
 
-#### User Goals:
+#### User Goals
 
-- **Recipe Organization:** Users aim to conveniently store and access their culinary recipes in one central location.
-- **Efficient Management:** Users seek a platform that simplifies the process of managing and categorizing recipes for easy retrieval.
-- **Collaborative Cooking:** Users may want to share recipes and collaborate with others in the culinary community.
+- **Program Creation**: Users want to easily create and manage their own workout programs.
+- **Community Engagement**: Users seek to follow others' workout programs and engage with the community.
+- **Progress Tracking**: Users need tools to track their fitness progress and make adjustments to their routines as needed.
 
-#### Owner Goals:
+#### Owner Goals
 
-- **User Engagement:** The primary goal is to keep users engaged by offering a user-friendly and efficient recipe management solution.
-- **Community Building:** Foster a sense of community among users through features that encourage recipe sharing and collaboration.
-- **Platform Growth:** Ensure the platform continues to attract new users and retain existing ones by delivering value and satisfaction.
+- **User Engagement**: Encourage users to actively create and share workout programs, keeping the platform dynamic and engaging.
+- **Community Growth**: Foster a sense of community by enabling users to follow and interact with each other's workout programs.
+- **Platform Expansion**: Attract new users by continually enhancing the platform with new features and improvements.
 
-### Scope:
+### Scope
 
-- **Recipe Storage:** The primary function is to allow users to store and organize their recipes.
-- **Accessibility:** Ensure recipes are easily accessible anytime, anywhere, with features for searching and filtering.
-- **Collaboration:** Implement features that enable users to share recipes, comment on recipes, and collaborate on cooking projects.
-- **Customization:** Allow users to customize their recipe library with personal notes, ratings, and favorite recipes.
+- **Workout Program Creation**: The core function is to allow users to create, edit, and manage their own workout programs.
+- **Program Following**: Users can follow workout programs created by others, allowing them to discover new routines and stay motivated.
+- **Community Features**: Enable users to comment on and like workout programs, fostering interaction within the community.
+- **Progress Tracking**: Provide users with tools to track their progress and monitor their adherence to workout programs.
 
-![Screen shots of the pages with comments](static/doc/comment-1.png)
-![Screen shots of the pages with comments](static/doc/comment-2.png)
-![Screen shots of the pages with comments](static/doc/comment-3.png)
-![Screen shots of the pages with comments](static/doc/comment-4.png)
-![Screen shots of the pages with comments](static/doc/comment-5.png)
+### Structure
 
-### Structure:
+![Screenshot of the wireframe](vfrontend/src/assets/doc/healthhub-wireframe.png)
 
-- **Recipe Dashboard:** Provide a central hub for users to view and manage their recipe collections.
-- **Recipe Entry Form:** Offer a user-friendly interface for adding new recipes, including fields for ingredients, instructions, and photos.
-- **Search and Filter:** Incorporate search and filter options to help users quickly find specific recipes or browse by categories.
-- **Recipe Sharing:** Enable users to share recipes with others via social media links or direct sharing options.
-- **Collaborative Features:** Implement features for users to comment on recipes, rate recipes, and collaborate on cooking projects with others.
+- **Dashboard**: A central hub where users can view their workout programs and the programs they follow.
+- **Program Creation Form**: An intuitive interface for creating new workout programs, with options to specify exercises, sets, reps, and more.
+- **Search and Filter**: Search for and filter workout programs based on various criteria such as fitness goals, duration, and difficulty level.
+- **Follow Feature**: Allow users to follow workout programs and receive updates or notifications about their progress.
+- **Community Engagement**: Users can like and comment on workout programs to provide feedback and support to others.
 
+### Skeleton
 
-### Skeleton:
-- **Create Recipe Button:** Start the recipe creation process with a "Create Recipe" button.
-- **Recipe Title Field:** Provide a title for your recipe.
-- **Description Field:** Add a description to your recipe.
-- **Ingredients List:** List all necessary ingredients.
-- **Steps:** Outline the procedure to prepare the recipe.
-- **Image Upload Option:** Upload an image to accompany your recipe or use a default one.
-- **Public/Private Toggle:** Specify whether the recipe should be public or private.
-- **Success Message:** Confirmation message upon successful recipe creation.
-- **Prepopulated Fields for Editing:** Fields come prepopulated for easy editing when modifying recipes.
-- **Like Button with Like Count:** Display the like count and enable liking of recipes.
-- **Comment Section:** Engage in discussions and view comments from other users.
-- **Edit Comment Option:** Edit your comments for accuracy.
-- **Delete Comment Button:** Remove comments to maintain relevant discussions.
+![Screenshot of the VI](frontend/src/assets/doc/healthhub-v-id.png)
 
-![Wireframe link](static/doc/wireframe.png)
+- **Create Program Button**: Start the workout program creation process with a "Create Program" button.
+- **Program Title Field**: Provide a title for the workout program.
+- **Description Field**: Add a description to the program outlining its goals and target audience.
+- **Exercise Field**: Add a description to exercises, sets, reps, and rest periods within the program.
+- **Image Upload Option**: Upload an image to represent the program or use a default one.
+- **Public/Private Toggle**: Choose whether the program should be public for others to follow or private.
+- **Follow Program Button**: Allow users to follow the program and receive notifications about updates.
+- **Comment Section**: Engage in discussions and view comments from other users on workout programs.
+- **Like Button with Like Count**: Display the like count and enable users to like workout programs.
 
-### Surface:
-- **Sign-Up/Login:** Initiate user interaction with a sign-up/login prompt.
-- **Recipe Dashboard:** Present users with their recipe collections upon logging in.
-- **Recipe Entry Form:** Provide a form for users to add new recipes, with fields for ingredients, instructions, and optional photos.
-- **Search and Filter Options:** Offer search and filter options to help users navigate their recipe collections efficiently.
-- **Recipe Sharing Tools:** Include options for users to share recipes via social media or direct sharing links.
-- **Collaboration Features:** Integrate features for users to comment on recipes, rate recipes, and collaborate with others on cooking projects.
+### Surface
 
-![Visual ID](static/doc/foorky-visual-identity.png)
+- **Sign-Up/Login**: Initiate user interaction with a sign-up/login prompt.
+- **Program Dashboard**: Present users with their created workout programs and the programs they follow upon logging in.
+- **Program Creation Form**: Provide a form for users to add new workout programs, including exercises, duration, and intensity.
+- **Search and Filter Options**: Offer search and filter options to help users find specific workout programs efficiently.
+- **Follow and Engagement Tools**: Include options for users to follow workout programs, comment on them, and like them.
 
-## Product development
+## Product Development
 
-In crafting Foorky, our development journey revolves around harnessing the power of HTML, CSS, JavaScript, Bootstrap, Django, and PostgreSQL. These technologies serve as the foundation, providing a robust framework for the website's frontend, backend, and database functionalities. Our approach embraces a mobile-first philosophy, ensuring a seamless experience across various devices.
+In developing HealthHub, we utilized React for the frontend and Django for the backend, ensuring a seamless experience for users as they create and follow workout programs. Our mobile-first approach ensures the platform is accessible on any device.
 
-To bring our vision to life, we leverage tools such as Figma for meticulous UI/UX design and Git/GitHub for effective version control and collaboration.
+### Development Strategy
 
-As we chart the course for future development, we've identified key areas that can further enrich the Foorky experience:
-
-- **User-Centric Enhancements:** Place a premium on user feedback to enhance the overall user experience. Consider implementing user registration, profile management, and avenues for user-generated content, fostering a more personalized connection.
-
-- **Feature Expansion:** Enrich the platform by introducing advanced search filters, seamless integration with social media platforms, and engaging features such as community forums or cooking challenges. These additions will contribute to a vibrant and interactive culinary community.
-
-- **Improving Accessibility:** Strive for inclusivity by ensuring adherence to accessibility standards, catering to users with diverse needs and abilities.
-
-- **Continual Testing and Optimization:** Uphold a commitment to excellence through an ongoing testing strategy. Identify and address bugs, enhance performance, and validate design changes to ensure a polished user experience.
-
-- **Community Engagement:** Cultivate a sense of community by encouraging user-driven content creation. Welcome feedback with open arms and respond promptly to user queries or concerns, fostering a responsive and vibrant community.
-
-- **Security Measures:** Fortify the platform with robust security measures. Safeguard user data, mitigate potential vulnerabilities, and proactively prevent security breaches to uphold user trust.
-
-By embracing these strategic steps, our vision for Foorky is not just a web app but a dynamic hub for recipe management and culinary exploration. This roadmap emphasizes user-centric design, feature richness, accessibility, continuous improvement, community engagement, and robust security. As we embark on this journey, we remain committed to delivering a culinary experience that exceeds expectations.
-
-## Product development
-
-In crafting Foorky, our development journey revolves around harnessing the power of HTML, CSS, JavaScript, Bootstrap, Django, and PostgreSQL. These technologies serve as the foundation, providing a robust framework for the website's frontend, backend, and database functionalities. Our approach embraces a mobile-first philosophy, ensuring a seamless experience across various devices.
-
-To bring our vision to life, we leverage tools such as Figma for meticulous UI/UX design and Git/GitHub for effective version control and collaboration.
-
-As we chart the course for future development, we've identified key areas that can further enrich the Foorky experience:
-
-- **User-Centric Enhancements:** Place a premium on user feedback to enhance the overall user experience. Consider implementing user registration, profile management, and avenues for user-generated content, fostering a more personalized connection.
-
-- **Feature Expansion:** Enrich the platform by introducing advanced search filters, seamless integration with social media platforms, and engaging features such as community forums or cooking challenges. These additions will contribute to a vibrant and interactive culinary community.
-
-- **Improving Accessibility:** Strive for inclusivity by ensuring adherence to accessibility standards, catering to users with diverse needs and abilities.
-
-- **Continual Testing and Optimization:** Uphold a commitment to excellence through an ongoing testing strategy. Identify and address bugs, enhance performance, and validate design changes to ensure a polished user experience.
-
-- **Community Engagement:** Cultivate a sense of community by encouraging user-driven content creation. Welcome feedback with open arms and respond promptly to user queries or concerns, fostering a responsive and vibrant community.
-
-- **Security Measures:** Fortify the platform with robust security measures. Safeguard user data, mitigate potential vulnerabilities, and proactively prevent security breaches to uphold user trust.
-
-By embracing these strategic steps, our vision for Foorky is not just a web app but a dynamic hub for recipe management and culinary exploration. This roadmap emphasizes user-centric design, feature richness, accessibility, continuous improvement, community engagement, and robust security. As we embark on this journey, we remain committed to delivering a culinary experience that exceeds expectations.
+- **User-Centric Enhancements**: Focus on features that enhance user interaction, such as customizable workout programs, progress tracking, and community engagement tools.
+- **Feature Expansion**: Introduce advanced filtering options, community-driven content, and social media style to engage users.
+- **Continuous Testing and Optimization**: Regularly test and optimize the platform to improve performance and address user feedback.
+- **Community Engagement**: Foster a strong community by encouraging users to share and follow workout programs.
+- **Security Measures**: Implement strong security protocols to protect user data and maintain trust.
 
 ## Future Features
 
-We plan to enhance the website with the following features:
-
-- **Search Field:** Incorporate a search field to enable users to quickly find specific recipes or ingredients within their collection.
-
-- **Recipe Import:** Allow users to import recipes from external sources such as websites or other recipe management platforms, making it easy to transfer existing recipes into Foorky.
-
-- **Meal Planning:** Integrate a meal planning feature that enables users to schedule meals by selecting recipes from their collection, helping users organize their cooking schedule for the week or month.
-
-- **Ingredient Management:** Provide users with tools to manage their ingredient inventory, including features for tracking ingredient quantities, setting reminders for low stock, and generating shopping lists based on selected recipes.
-
-- **Nutritional Information:** Display nutritional information for recipes, including calorie count, macronutrient breakdown, and allergen information, helping users make informed dietary choices.
-
-- **Recipe Recommendations:** Offer personalized recipe recommendations based on users' preferences, cooking history, and dietary restrictions, helping users discover new recipes they may enjoy.
-
-- **Social Integration:** Enable users to connect with friends and family within the Foorky platform, allowing them to share recipes, collaborate on cooking projects, and view each other's recipe collections.
-
-- **Multi-platform Access:** Develop Foorky as a cross-platform application, ensuring users can access their recipe collections seamlessly across desktop, mobile, and tablet devices.
-
-- **Offline Mode:** Implement an offline mode that allows users to access their most recently viewed recipes even without an internet connection, ensuring uninterrupted access to recipes while cooking in the kitchen.
-
-- **Recipe Versioning:** Provide users with the ability to create multiple versions of a recipe, allowing them to experiment with variations or adaptations without altering the original recipe.
-
-- **Integration with Smart Devices:** Enable integration with smart kitchen devices such as smart scales or ovens, allowing users to follow recipes more accurately by syncing cooking instructions directly with their devices.
+- **Advanced Search**: Implement a more sophisticated search feature that allows users to find programs based on specific goals, difficulty levels, and other parameters.
+- **Social Sharing**: Enable users to share their workout programs on social media platforms to attract more followers.
+- **Workout Program Recommendations**: Provide personalized program recommendations based on user preferences and activity.
+- **Offline Access**: Allow users to access their workout programs offline, ensuring they can work out without an internet connection.
+- **Integration with Fitness Trackers**: Integrate with popular fitness trackers to automatically log workout data and track progress.
 
 ## Technology Used
 
-- Frontend: HTML, CSS, JavaScript, Boostrap
-- Backend: Django
-- Database: PostgreSQL
-- Figma for wireframes
-- ChatGPT - for AI assistance
-- Adobe express for image content
-- Adobe Illustrator for graphic content
-- www.w3.org: Utilized to perform validation test of HTML and CSS.
-- https://jshint.com/: Utilized to perform validation test of JavaScript.
-- https://ui.dev/amiresponsive: Utilized for a quick overview of the responsivness.
+- **Frontend**: React
+- **Backend**: Django
+- **Database**: PostgreSQL
+- **Styling**: CSS, Bootstrap
+- **Version Control**: GitHub
+- **Design Tools**: Figma for wireframes
+- **API Testing**: Manual
 
 ## Testing
 
-Testing was an integral part of the website development process. We performed comprehensive tests across various devices and screen sizes to ensure a seamless user experience. This included functional testing to verify proper functionality of all features, as well as responsive testing to guarantee optimal display on different devices. Additionally we performed serval manual tests.
+Testing was conducted manually to ensure that all features function as expected. This included:
 
-- [Responsiveness overview](static/doc/responsive-test.png)
-- [Manual testing table](testing.md)
-- [pep8 linter test](static/doc/pep8-linter-test.png)
-- [css validation](static/doc/css-validation.png)
-- [JavaScript validation](static/doc/js-validation.png)
+- **Functional Testing**: Verified that users can create, edit, follow, and delete workout programs without issues.
+- **Responsiveness Testing**: Ensured that HealthHub displays correctly on various devices, from desktops to mobile phones.
+- **User Interaction Testing**: Tested features such as liking, commenting, and following workout programs to ensure smooth user interactions.
 
-### Known issues
+### Known Issues
 
-- [HTML validation](static/doc/HTML-validation-sample.png) Django related issues shows up in the validation
+- **Django Validation**: Some validation issues specific to Django may appear in HTML validation tools but do not impact the functionality.
 
 ## Development
 
-If you're a developer looking to contribute to the Foorky project or get started with local development, follow these steps:
+### Setting Up Local Development
 
-1. **Clone the Repository:** Start by cloning the Foorky GitHub repository to your local machine using the following command:
+If you're a developer looking to contribute to HealthHub, follow these steps:
 
-2. **Set Up Environment:** Navigate to the project directory and create a virtual environment for Python. Activate the virtual environment and install project dependencies using pip:
+1. **Clone the Repository**:
+   ```bash
+   git clone <https://github.com/davidb3rgqvist/project5_be>
 
-3. **Database Configuration:** Foorky uses PostgreSQL as its database backend. Set up a local PostgreSQL database and configure the database connection settings in the `settings.py` file.
+2. **Set Up the Environment**: Navigate to the project directory and create a virtual environment for Python. Activate the environment and install project dependencies:
 
-4. **Apply Migrations:** Run database migrations to create the necessary database schema:
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-5. **Create Superuser (Optional):** If you want to access the Django admin interface, create a superuser account:
 
-6. **Run Development Server:** Start the Django development server to run the Foorky web application locally:
+3. **Database Configuration**: HealthHub uses PostgreSQL as its database backend. Set up a local PostgreSQL database and configure the connection settings in settings.py.
+Apply Migrations: Run database migrations to create the necessary schema:
 
-7. **Access Local Version:** Open your web browser and navigate to `http://127.0.0.1:8000` to access the local version of the Foorky web application.
+python manage.py makemigrations
+python manage.py migrate
 
-8. **Start Coding:** You're all set to start coding! Make changes to the codebase, add new features, fix bugs, and contribute to the Foorky project. Don't forget to create a new branch for your changes and submit pull requests for review.
 
-For more detailed information on contributing to the Foorky project, including coding conventions, workflow guidelines, and best practices, refer to the project's documentation and README file on GitHub.
+4. **Create Superuser (Optional)**: If you want to access the Django admin interface, create a superuser account:
 
-## Agile Development
+python manage.py createsuperuser
 
-This project follows Agile development methodology to manage tasks and ensure timely delivery of features. Agile emphasizes iterative development, collaboration, and flexibility.
 
-### Agile Board
+5. **Run Development Server**: Start the Django development server to run HealthHub locally:
 
-We use an Agile board to manage our tasks and keep track of our progress. You can access our Agile board [here](https://github.com/users/davidb3rgqvist/projects/4).
+python manage.py runserver
 
-On the Agile board, you'll find columns representing different stages of the development process, such as "To Do", "In Progress", "Review", and "Done". Each task or user story is represented as a card that moves through these columns as it progresses from being planned to being completed.
+6. **Start Coding**: Make changes to the codebase, add new features, fix bugs, and contribute to HealthHub. Remember to create a new branch for your changes and submit pull requests for review.
+
+### Agile Development
+
+[Repository](#) (https://github.com/users/davidb3rgqvist/projects/5/views/1)
+
+HealthHub follows Agile development methodology to manage tasks and ensure timely delivery of features.
+Agile Board: Track progress using an Agile board with columns like "To Do", "In Progress", "Review", and "Done".
 
 ## Deployment
 
-The Foorky web application is deployed using Heroku, a cloud platform as a service (PaaS). Here are the steps for deployment:
+HealthHub is deployed using Heroku, providing a reliable platform for hosting and scaling the app.
 
-1. **GitHub Repository:** The Foorky codebase resides in a GitHub repository. - [Repository](https://github.com/davidb3rgqvist/project4)
+## Deployment Steps
 
-2. **Heroku Setup:** Sign up for a Heroku account and create a new app.
+- **GitHub Repository**: The codebase resides in a GitHub repository.
+- **Heroku Setup**: Sign up for a Heroku account and create a new app.
+- **Deployment Configuration**: Set up the Heroku app to deploy from the GitHub repository, either manually or using automatic deployment hooks.
+- **Database Setup**: Configure the PostgreSQL database add-on on Heroku to host the HealthHub database.
+- **Environment Variables**: Set any necessary environment variables, such as Django secret key or database credentials, in the Heroku app settings.
+- **Deployment**: Trigger the deployment process either manually or by pushing to the main branch of the GitHub repository.
+- **Verification**: Verify the deployment status and ensure the HealthHub web application is live and accessible on the specified Heroku URL.
 
-3. **Deployment Configuration:** Set up the Heroku app to deploy from the GitHub repository, either manually or using automatic deployment hooks.
+## Accessing the Deployed Site
 
-4. **Database Setup:** Configure the PostgreSQL database add-on on Heroku to host the Foorky database.
-
-5. **Environment Variables:** Set any necessary environment variables, such as Django secret key or database credentials, in the Heroku app settings.
-
-6. **Deployment:** Trigger the deployment process either manually or by pushing to the main branch of the GitHub repository.
-
-7. **Verification:** Verify the deployment status and ensure the Foorky web application is live and accessible on the specified Heroku URL.
-
-### Accessing the Deployed Site
-
-The deployed Foorky web application can be accessed using the following URL: [Heroku App URL](https://project4-recipe-app-0bdc7c5f1779.herokuapp.com/)
-
-Heroku provides a reliable platform for hosting and scaling web applications, ensuring accessibility to users worldwide.
-
-Feel free to explore the live version of the Foorky web application.
+The deployed HealthHub web application can be accessed using the following URL: [Heroku App URL] (Add your Heroku link here)
 
 ## Credits
 
-The development and creation of the Foorky web application would not have been possible without the contributions, support, and resources from various individuals and organizations. We would like to extend our gratitude and credit to the following:
-
 ### Open-Source Libraries
 
-- **Google Fonts:** Utilized for typography and font styles throughout the Foorky web application.
-- **Font Awesome:** Provided icons for various UI elements, enhancing the user experience.
-- **Bootstrap:** Leveraged for its responsive design components, streamlining the development of Foorky's frontend.
+- **Google Fonts**: Utilized for typography and font styles throughout the HealthHub web application.
+- **Font Awesome**: Provided icons for various UI elements, enhancing the user experience.
+- **Bootstrap**: Leveraged for its responsive design components, streamlining the development of HealthHub's frontend.
 
 ### External Resources
 
-- **Unsplash:** Provided high-quality images used in Foorky's interface, contributing to an engaging user experience.
-- **GitHub:** Facilitated version control and hosting of the Foorky project repository.
+- **Unsplash**: Provided high-quality images used in HealthHub's interface, contributing to an engaging user experience.
+- **GitHub**: Facilitated version control and hosting of the HealthHub project repository.
 
 ### Inspirations and Mentors
 
-- **Brian O'Hare:** As a mentor from Code Institute, Brian provided valuable guidance and inspiration during the development of Foorky.
+- **Gareth McGirr**: As a mentor from Code Institute, Gareth provided valuable guidance and inspiration during the development of HealthHub.
+- **Code Institute Projects**: The DRF-API project and Moments project from Code Institute served as inspiration for the design and functionality of HealthHub.
 
-We express our sincere appreciation to everyone who contributed directly or indirectly to the Foorky project, helping shape and enhance this platform for users seeking a seamless solution for recipe management and culinary exploration.
+We express our sincere appreciation to everyone who contributed directly or indirectly to the HealthHub project, helping shape and enhance this platform for users seeking a seamless solution for workout management and fitness exploration.
 
-### Used Themes and Modal
-
-- **Themes and Modal:** We utilized specific Bootstrap themes and modal components to enhance the visual appeal and functionality of the Foorky web application. These elements contributed to a consistent and intuitive user experience.
-- Bootstrap theme: https://startbootstrap.com/template/small-business
-- Modal for login and register: Modified Login Modal by MDB (https://mdbootstrap.com/docs/standard/extended/login/)
-
-### Inspiration Projects
-
-- **Inspiration Projects:** The design and functionality of Foorky were inspired by Code Institute walkthrough project: "I Think Therfore I blog". Main structure and auth.
-
-We express our sincere appreciation to everyone who contributed directly or indirectly to the Foorky project, helping shape and enhance this platform for users seeking a seamless solution for recipe management and culinary exploration.

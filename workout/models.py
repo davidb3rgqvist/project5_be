@@ -8,7 +8,12 @@ class Workout(models.Model):
     description = models.TextField()
     exercises = models.TextField()
     routine = models.TextField()
-    photo = cloudinary.models.CloudinaryField(blank=True, default='default.jpg', max_length=255, verbose_name='image')
+    photo = cloudinary.models.CloudinaryField(
+        blank=True,
+        default='https://res.cloudinary.com/dbar13vfu/image/upload/v1722613338/default_workout_jkjhym.png',
+        max_length=255,
+        verbose_name='image'
+    )
     tags = models.CharField(max_length=200, blank=True)
     is_public = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=timezone.now)

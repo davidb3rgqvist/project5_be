@@ -18,20 +18,14 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [(
-        'rest_framework.authentication.SessionAuthentication'
-        if 'DEV' in os.environ
-        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
-    )],
-    'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'DATETIME_FORMAT': '%d %b %Y',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
-if 'DEV' not in os.environ:
-    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
-        'rest_framework.renderers.JSONRenderer',
-    ]
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
@@ -46,23 +40,18 @@ REST_AUTH_SERIALIZERS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# DEBUG = 'DEBUG' in os.environ
-DEBUG = True
+
+DEBUG = 'DEBUG' in os.environ
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
+    '127.0.0.1'
+]
 
-# ALLOWED_HOSTS = [
-#     os.environ.get('ALLOWED_HOST'),
-#     'localhost',
-#     '127.0.0.1',
-# ]
-
-CORS_ALLOWED_ORIGIN = ['*']
-
-# CORS_ALLOWED_ORIGIN = [
-#     os.environ.get('CLIENT_ORIGIN'),
-# ]
+CORS_ALLOWED_ORIGIN = [
+    os.environ.get('CLIENT_ORIGIN'),
+]
 
 
 # Application definition
@@ -94,6 +83,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'allauth.account.middleware.AccountMiddleware',
@@ -109,7 +99,7 @@ ROOT_URLCONF = 'workout_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +112,8 @@ TEMPLATES = [
     },
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
 
 WSGI_APPLICATION = 'workout_app.wsgi.application'
 
@@ -153,7 +145,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/build/static')]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
