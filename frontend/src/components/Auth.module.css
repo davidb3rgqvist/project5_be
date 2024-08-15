@@ -1,3 +1,5 @@
+/* Auth.module.css */
+
 .authContainer {
     display: flex;
     justify-content: center;
@@ -25,7 +27,7 @@
   
   .authImage {
     flex: 1;
-    background-image: url('../../assets/auth-image.jpg');
+    background-image: url('../assets/auth-image.jpg');
     background-size: cover;
     background-position: center;
     display: block;
@@ -39,6 +41,15 @@
   
   .formGroup {
     margin-bottom: 20px;
+  }
+  
+  .link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
   }
   
   @media (max-width: 768px) {

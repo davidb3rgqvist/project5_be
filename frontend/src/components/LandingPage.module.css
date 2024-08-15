@@ -1,0 +1,111 @@
+.landingContainer {
+    text-align: center;
+  }
+  
+  .contentSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  .textArea {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .textArea h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .textArea p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .imageArea {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .portraitImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .benefitsSection {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .benefitsSection h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  
+  .benefitsSection h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .benefitsSection p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .heroSection {
+    background-size: cover;
+    background-position: center;
+    padding: 150px 20px;
+    color: white;
+  }
+  
+  .heroSection h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .heroSection p {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .benefitsSection {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .benefitsSection .col-md-4 h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .benefitsSection .col-md-4 p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .benefitImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .contentSection {
+      flex-direction: column;
+    }
+  
+    .textArea {
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .portraitImage {
+      width: 100%;
+    }
+  }
+  

@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Auth.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+function getCSRFToken() {
+  let csrfToken = null;
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    if (cookie.trim().startsWith('csrftoken=')) {
+      csrfToken = cookie.split('=')[1];
+    }
+  }
+  return csrfToken;
+}
 
 function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');
@@ -12,10 +24,12 @@ function Login({ setIsAuthenticated }) {
     setError(null);
 
     try {
+      const csrfToken = getCSRFToken();
       const response = await fetch('/api/auth/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken,
         },
         body: JSON.stringify({ username, password }),
       });
@@ -63,6 +77,9 @@ function Login({ setIsAuthenticated }) {
             <button type="submit" className="btn btn-primary btn-block">Login</button>
             {error && <p className="text-danger mt-3">{error}</p>}
           </form>
+          <p className="mt-3">
+            Don't have an account? <Link to="/register">Register here</Link>
+          </p>
         </div>
         <div className={styles.authImage}></div>
       </div>

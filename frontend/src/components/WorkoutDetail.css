@@ -1,0 +1,13 @@
+.img-fluid {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .list-group-item {
+    margin-bottom: 0.5rem;
+  }
+  
