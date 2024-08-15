@@ -3,6 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import styles from './CreateWorkout.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+function getJWTToken() {
+  const name = 'my-app-auth=';
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i].trim();
+    if (c.startsWith(name)) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return null;
+}
+
+function getCSRFToken() {
+  let csrfToken = null;
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    if (cookie.trim().startsWith('csrftoken=')) {
+      csrfToken = cookie.split('=')[1];
+    }
+  }
+  return csrfToken;
+}
+
 function CreateWorkout() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -28,16 +52,24 @@ function CreateWorkout() {
     }
 
     try {
+      const jwtToken = getJWTToken();
+      if (!jwtToken) {
+        throw new Error('Authentication token is missing');
+      }
+
+      const csrfToken = getCSRFToken();
       const response = await fetch('/api/workouts/', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${document.cookie.split('my-app-auth=')[1]}`,
+          'Authorization': `Bearer ${jwtToken}`,
+          'X-CSRFToken': csrfToken,
         },
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error('Workout creation failed');
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Workout creation failed');
       }
 
       alert('Workout created successfully');
@@ -96,21 +128,23 @@ function CreateWorkout() {
             required
           ></textarea>
         </div>
-        <div className="form-group">
-          <label htmlFor="isPublic">Public</label>
+        <div className="form-group form-check">
           <input
             type="checkbox"
-            className="form-control"
+            className="form-check-input"
             id="isPublic"
             checked={isPublic}
             onChange={(e) => setIsPublic(e.target.checked)}
           />
+          <label className="form-check-label" htmlFor="isPublic">
+            Public
+          </label>
         </div>
         <div className="form-group">
           <label htmlFor="photo">Photo</label>
           <input
             type="file"
-            className="form-control"
+            className="form-control-file"
             id="photo"
             onChange={(e) => setPhoto(e.target.files[0])}
           />

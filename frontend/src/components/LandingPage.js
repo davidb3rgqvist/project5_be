@@ -16,7 +16,7 @@ function LandingPage() {
       >
         <h1>Welcome to HealthHub</h1>
         <p>Your journey to fitness begins here.</p>
-        <Link to="/register" className="btn btn-primary btn-lg">Get Started</Link>
+        <Link to="/register" className="btn btn-primary btn-lg">Register</Link>
       </div>
       <div className={styles.benefitsSection}>
         <div className="row">

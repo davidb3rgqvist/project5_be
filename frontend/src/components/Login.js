@@ -18,19 +18,19 @@ function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
 
     try {
-      const csrfToken = getCSRFToken(); // Get the CSRF token from cookies
+      const csrfToken = getCSRFToken();
       const response = await fetch('/api/auth/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRFToken': csrfToken, // Include CSRF Token in the request headers
+          'X-CSRFToken': csrfToken,
         },
         body: JSON.stringify({ username, password }),
       });
@@ -39,9 +39,12 @@ function Login({ setIsAuthenticated }) {
         throw new Error('Login failed');
       }
 
+      const data = await response.json();
+      document.cookie = `my-app-auth=${data.token}; path=/;`;
+
       setIsAuthenticated(true);
       alert('Login successful');
-      navigate('/workouts'); // Redirect to the workouts page
+      navigate('/workouts');
 
     } catch (error) {
       setError(error.message);

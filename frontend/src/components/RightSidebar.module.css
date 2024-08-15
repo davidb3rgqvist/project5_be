@@ -1,7 +1,7 @@
 .rightSidebar {
     width: 20%;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #ffff;
   }
   
   .followedPlans {
@@ -14,7 +14,7 @@
   }
   
   .followedPlans a {
-    color: #007bff;
+    color: #af206e;
     text-decoration: none;
   }
   

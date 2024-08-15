@@ -1,0 +1,26 @@
+.workoutCard {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .workoutImage {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .readMore {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .readMore:hover {
+    text-decoration: underline;
+  }
+  

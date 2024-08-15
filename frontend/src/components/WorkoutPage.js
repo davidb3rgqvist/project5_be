@@ -1,15 +1,35 @@
-import React from 'react';
-import LeftSidebar from './LeftSidebar';
-import Feed from './Feed';
-import RightSidebar from './RightSidebar';
+import React, { useState, useEffect } from 'react';
+import WorkoutCard from './WorkoutCard';
 import styles from './WorkoutPage.module.css';
 
 function WorkoutPage() {
+  const [workouts, setWorkouts] = useState([]);
+
+  useEffect(() => {
+    
+    const fetchWorkouts = async () => {
+      try {
+        const response = await fetch('/api/workouts/');
+        if (!response.ok) {
+          throw new Error('Failed to fetch workouts');
+        }
+        const data = await response.json();
+        setWorkouts(data.results); 
+      } catch (error) {
+        console.error('Error fetching workouts:', error);
+      }
+    };
+
+    fetchWorkouts();
+  }, []);
+
   return (
     <div className={styles.workoutPage}>
-      <LeftSidebar />
-      <Feed />
-      <RightSidebar />
+      <div className={styles.workoutFeed}>
+        {workouts.map((workout) => (
+          <WorkoutCard key={workout.id} workout={workout} />
+        ))}
+      </div>
     </div>
   );
 }
