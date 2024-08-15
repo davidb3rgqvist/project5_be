@@ -10,8 +10,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(write_only=True)
 
     class Meta:
-        model = get_user_model()
-        fields = ['email', 'username', 'password1', 'password2']
+        model = UserModel
+        fields = ['username', 'password1', 'password2']
 
     def validate(self, data):
         if data['password1'] != data['password2']:
@@ -19,8 +19,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        user = get_user_model().objects.create_user(
-            email=validated_data['email'],
+        user = UserModel.objects.create_user(
             username=validated_data['username'],
             password=validated_data['password1']
         )
@@ -28,17 +27,29 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
 
 class UserLoginSerializer(serializers.Serializer):
-    email = serializers.EmailField()
+    username = serializers.CharField()
     password = serializers.CharField(write_only=True)
 
-    def check_user(self, validated_data):
-        user = authenticate(email=validated_data['email'], password=validated_data['password'])
+    def validate(self, data):
+        username = data.get('username')
+        password = data.get('password')
+
+        
+        user = authenticate(username=username, password=password)
         if user is None:
             raise serializers.ValidationError("Invalid login credentials")
-        return user
+        
+       
+        if not user.is_active:
+            raise serializers.ValidationError("User is deactivated")
 
+        return {
+            'user': user
+        }
+        
+UserModel = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ('email', 'username')
+        fields = ('username',)

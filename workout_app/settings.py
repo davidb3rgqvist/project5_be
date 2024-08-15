@@ -46,16 +46,23 @@ REST_AUTH_SERIALIZERS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = 'DEBUG' in os.environ
+# DEBUG = 'DEBUG' in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'),
-    'localhost',
-]
 
-CORS_ALLOWED_ORIGIN = [
-    os.environ.get('CLIENT_ORIGIN')
-]
+ALLOWED_HOSTS = ['*']
+
+# ALLOWED_HOSTS = [
+#     os.environ.get('ALLOWED_HOST'),
+#     'localhost',
+#     '127.0.0.1',
+# ]
+
+CORS_ALLOWED_ORIGIN = ['*']
+
+# CORS_ALLOWED_ORIGIN = [
+#     os.environ.get('CLIENT_ORIGIN'),
+# ]
 
 
 # Application definition

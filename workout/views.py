@@ -16,16 +16,13 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     pagination_class = PageNumberPagination
 
-    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
-    def like(self, request, pk=None):
-        workout = self.get_object()
-        like_instance = WorkoutLike.objects.filter(user=request.user, workout=workout).first()
-        if like_instance:
-            like_instance.delete()
-            return Response({'status': 'unliked'}, status=status.HTTP_200_OK)
-        else:
-            WorkoutLike.objects.create(user=request.user, workout=workout)
-            return Response({'status': 'liked'}, status=status.HTTP_200_OK)
+    def get_queryset(self):
+       
+        user = self.request.user
+        if user.is_authenticated:
+            return Workout.objects.filter(user=user).annotate(num_likes=Count('likes'))
+        return Workout.objects.none()
+
 
 class WorkoutCommentViewSet(viewsets.ModelViewSet):
     """

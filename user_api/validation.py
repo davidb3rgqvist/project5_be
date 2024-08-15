@@ -1,11 +1,13 @@
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email as django_validate_email
+from django.contrib.auth import get_user_model
 import re
 
 def custom_validation(data, required_fields):
+    """
+    Ensure all required fields are present and passwords match.
+    """
     cleaned_data = {}
     for field in required_fields:
-        if field not in data:
+        if field not in data or not data[field].strip():
             raise ValueError(f"{field} is required.")
         cleaned_data[field] = data[field].strip()
     
@@ -14,54 +16,24 @@ def custom_validation(data, required_fields):
     
     return cleaned_data
 
-def validate_email(email):
+def validate_username(username):
     """
-    Validate the format of an email address using Django's built-in validator.
-
-    :param email: The email address to validate.
-    :return: True if the email is valid, otherwise False.
+    Validate the format of a username and ensure it's unique.
     """
-    try:
-        django_validate_email(email)
-        return True
-    except ValidationError:
-        return False
+    if not re.match(r"^[a-zA-Z0-9]{3,30}$", username):
+        raise ValueError("Username must be alphanumeric and between 3 and 30 characters long.")
+    
+    UserModel = get_user_model()
+    if UserModel.objects.filter(username=username).exists():
+        raise ValueError("Username already exists.")
+    
+    return True
 
 def validate_password(password):
     """
-    Validate the strength of a password.
-
-    :param password: The password to validate.
-    :return: True if the password is valid, otherwise False.
+    Validate that the password is at least 8 characters long.
     """
     if len(password) < 8:
-        return False
-    if not re.search(r"\d", password):
-        return False
-    if not re.search(r"[A-Z]", password):
-        return False
-    if not re.search(r"[a-z]", password):
-        return False
-    return True
-
-def validate_username(username):
-    """
-    Validate the format of a username.
-
-    :param username: The username to validate.
-    :return: True if the username is valid, otherwise False.
-    """
-    if not re.match(r"^[a-zA-Z0-9]{3,30}$", username):
-        return False
-    return True
-
-def validate_phone_number(phone_number):
-    """
-    Validate the format of a phone number.
-
-    :param phone_number: The phone number to validate.
-    :return: True if the phone number is valid, otherwise False.
-    """
-    if not re.match(r"^\+\d{10,15}$", phone_number):
-        return False
+        raise ValueError("Password must be at least 8 characters long.")
+    
     return True
