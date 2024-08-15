@@ -53,7 +53,14 @@ CORS_ALLOWED_ORIGIN = [
     os.environ.get('CLIENT_ORIGIN'),
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Heroku settings
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    }
+    
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
