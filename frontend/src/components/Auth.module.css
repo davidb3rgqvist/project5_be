@@ -1,0 +1,53 @@
+.authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .authCard {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .authForm {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .authImage {
+    flex: 1;
+    background-image: url('../../assets/auth-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: block;
+  }
+  
+  .formTitle {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .authCard {
+      flex-direction: column;
+    }
+  
+    .authImage {
+      display: none;
+    }
+  }
+  

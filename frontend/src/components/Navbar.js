@@ -1,0 +1,34 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
+import logo from '../assets/logo.png';
+
+function Navbar({ isAuthenticated, setIsAuthenticated }) {
+  const handleLogout = () => {
+
+    document.cookie = 'my-app-auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    setIsAuthenticated(false);
+  };
+
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.logo}>
+        <Link to="/">
+          <img src={logo} alt="MyApp Logo" className={styles.logoImage} />
+        </Link>
+      </div>
+      <div className={styles.links}>
+        {isAuthenticated ? (
+          <a href="/" onClick={handleLogout} className={styles.link}>Logout</a>
+        ) : (
+          <>
+            <Link to="/login" className={styles.link}>Login</Link>
+            <Link to="/register" className={styles.link}>Register</Link>
+          </>
+        )}
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;
