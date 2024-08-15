@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.views.generic import TemplateView
 
 def register_view(request):
+    # Handles user registration with form validation and success messaging
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -15,4 +16,5 @@ def register_view(request):
     return render(request, 'registration/register.html', {'form': form})
 
 class IndexView(TemplateView):
+    # Renders the home page (index.html)
     template_name = "index.html"

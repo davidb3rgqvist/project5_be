@@ -10,6 +10,7 @@ import trainAnywhereImage from '../assets/train-anywhere.jpg';
 function LandingPage() {
   return (
     <div className={styles.landingContainer}>
+      {/* Hero section with background image and call to action */}
       <div
         className={styles.heroSection}
         style={{ backgroundImage: `url(${landingBg})` }}
@@ -18,6 +19,8 @@ function LandingPage() {
         <p>Your journey to fitness begins here.</p>
         <Link to="/register" className="btn btn-primary btn-lg">Register</Link>
       </div>
+      
+      {/* Benefits section highlighting key features of the platform */}
       <div className={styles.benefitsSection}>
         <div className="row">
           <div className="col-md-4">

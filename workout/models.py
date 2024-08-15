@@ -4,6 +4,7 @@ from django.utils import timezone
 import cloudinary.models
 
 class Workout(models.Model):
+    # Model representing a workout created by a user
     title = models.CharField(max_length=200)
     description = models.TextField()
     exercises = models.TextField()
@@ -23,6 +24,7 @@ class Workout(models.Model):
         return self.title
 
 class WorkoutLike(models.Model):
+    # Model representing a like on a workout by a user
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     workout = models.ForeignKey(Workout, related_name='likes', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -31,6 +33,7 @@ class WorkoutLike(models.Model):
         return f"{self.user.email} likes {self.workout.title}"
 
 class WorkoutComment(models.Model):
+    # Model representing a comment on a workout by a user
     text = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='workout_comments')
@@ -41,7 +44,9 @@ class WorkoutComment(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
 class WorkoutEntry(models.Model):
+    # Model representing a log entry of a user performing a workout
     created_at = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='workout_entries')
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE, related_name='entries')

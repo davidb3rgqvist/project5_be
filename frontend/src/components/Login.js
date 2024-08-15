@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './Auth.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Function to retrieve CSRF token from cookies
 function getCSRFToken() {
   let csrfToken = null;
   const cookies = document.cookie.split(';');
@@ -20,6 +21,7 @@ function Login({ setIsAuthenticated }) {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Handle form submission for login
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);

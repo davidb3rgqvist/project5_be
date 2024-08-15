@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 import logo from '../assets/logo.png';
 
 function Navbar({ isAuthenticated, setIsAuthenticated }) {
+  // Handle logout by clearing the auth cookie and updating state
   const handleLogout = () => {
     document.cookie = 'my-app-auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     setIsAuthenticated(false);
@@ -12,6 +13,7 @@ function Navbar({ isAuthenticated, setIsAuthenticated }) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
+        {/* Logo link to home or workouts depending on auth status */}
         <Link to={isAuthenticated ? "/workouts" : "/"}>
           <img src={logo} alt="MyApp Logo" className={styles.logoImage} />
         </Link>

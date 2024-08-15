@@ -6,7 +6,7 @@ function WorkoutPage() {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    
+    // Fetch workouts from the API when the component mounts
     const fetchWorkouts = async () => {
       try {
         const response = await fetch('/api/workouts/');
@@ -14,7 +14,7 @@ function WorkoutPage() {
           throw new Error('Failed to fetch workouts');
         }
         const data = await response.json();
-        setWorkouts(data.results); 
+        setWorkouts(data.results);
       } catch (error) {
         console.error('Error fetching workouts:', error);
       }

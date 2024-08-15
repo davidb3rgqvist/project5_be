@@ -6,6 +6,7 @@ from .forms import UserRegisterForm, UserLoginForm
 UserModel = get_user_model()
 
 class UserRegisterSerializer(serializers.ModelSerializer):
+    # Extra fields for password confirmation
     password1 = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)
 
@@ -25,31 +26,30 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
-
 class UserLoginSerializer(serializers.Serializer):
+    # Fields for login credentials
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
+        # Authenticate the user with the provided credentials
         username = data.get('username')
         password = data.get('password')
 
-        
         user = authenticate(username=username, password=password)
         if user is None:
             raise serializers.ValidationError("Invalid login credentials")
         
-       
+        # Check if the user is active
         if not user.is_active:
             raise serializers.ValidationError("User is deactivated")
 
         return {
             'user': user
         }
-        
-UserModel = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
+    # Serializer for returning basic user data
     class Meta:
         model = UserModel
         fields = ('username',)

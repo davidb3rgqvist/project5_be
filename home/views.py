@@ -3,17 +3,21 @@ from django.urls import reverse, NoReverseMatch
 
 def home_view(request):
     try:
+        # Attempt to reverse URLs for various API endpoints
         api_endpoints = [
             {'name': 'User Register', 'url': reverse('register')},
             {'name': 'User Login', 'url': reverse('login')},
             {'name': 'User Logout', 'url': reverse('logout')},
             {'name': 'User Profile', 'url': reverse('user')},
             {'name': 'Workout List', 'url': reverse('workout-list')},
-            {'name': 'Workout Comment List', 'url': reverse('workoutcomment-list', kwargs={'workout_id': 1})},  # Example with a placeholder workout_id
+            # Example of a URL that requires a dynamic argument (workout_id)
+            {'name': 'Workout Comment List', 'url': reverse('workoutcomment-list', kwargs={'workout_id': 1})},
         ]
     except NoReverseMatch as e:
-        api_endpoints = [{'name': 'Error: ' + str(e), 'url': '#'}]  # Handle cases where URL names don't exist
+        # Handle case where URL names don't exist by showing an error message
+        api_endpoints = [{'name': 'Error: ' + str(e), 'url': '#'}]
 
+    # HTML content to display the welcome message and list of API endpoints
     html = """
     <!DOCTYPE html>
     <html lang="en">
@@ -59,6 +63,7 @@ def home_view(request):
             <ul>
     """
 
+    # Loop through API endpoints to dynamically generate list items with links
     for endpoint in api_endpoints:
         html += f'<li><a href="{endpoint["url"]}">{endpoint["name"]}</a></li>'
 
@@ -69,4 +74,5 @@ def home_view(request):
     </html>
     """
 
+    # Return the constructed HTML as an HttpResponse
     return HttpResponse(html)

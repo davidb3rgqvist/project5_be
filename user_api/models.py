@@ -2,14 +2,16 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group, Permission
 
 class AppUserManager(BaseUserManager):
+    # Method to create a regular user
     def create_user(self, username, password=None, **extra_fields):
         if not username:
             raise ValueError('The Username field must be set')
         user = self.model(username=username, **extra_fields)
-        user.set_password(password)
+        user.set_password(password)  # Hashes the user's password
         user.save(using=self._db)
         return user
 
+    # Method to create a superuser with additional privileges
     def create_superuser(self, username, password=None, **extra_fields):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_staff', True)
@@ -22,11 +24,13 @@ class AppUserManager(BaseUserManager):
         return self.create_user(username, password, **extra_fields)
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
+    # Custom user model with a unique username and additional fields
     user_id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50, unique=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)  # Indicates whether the user's account is active
+    is_staff = models.BooleanField(default=False)  # Indicates whether the user can access the admin site
 
+    # Fields for managing user groups and permissions
     groups = models.ManyToManyField(
         Group,
         related_name='appuser_groups',
@@ -42,10 +46,4 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
         verbose_name='user permissions',
     )
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = []
-
-    objects = AppUserManager()
-
-    def __str__(self):
-        return self.username
+    #

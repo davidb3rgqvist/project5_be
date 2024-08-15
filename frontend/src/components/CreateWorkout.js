@@ -1,8 +1,10 @@
+// Import necessary libraries and styles
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './CreateWorkout.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Function to retrieve JWT token from cookies
 function getJWTToken() {
   const name = 'my-app-auth=';
   const decodedCookie = decodeURIComponent(document.cookie);
@@ -16,6 +18,7 @@ function getJWTToken() {
   return null;
 }
 
+// Function to retrieve CSRF token from cookies
 function getCSRFToken() {
   let csrfToken = null;
   const cookies = document.cookie.split(';');
@@ -28,6 +31,7 @@ function getCSRFToken() {
 }
 
 function CreateWorkout() {
+  // State management for form fields and error handling
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [exercises, setExercises] = useState('');
@@ -37,6 +41,7 @@ function CreateWorkout() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);

@@ -4,7 +4,7 @@ HealthHub is a web app designed to empower users to create, share, and follow cu
 
 ## Deployed Page
 
-[Visit HealthHub](#) (Add your deployed link here)
+[Visit HealthHub](#) (https://health-hub-a58a68d5575e.herokuapp.com/)
 [Repository](#) (https://github.com/davidb3rgqvist/project5_be)
 
 ![Screenshot of the Responsive test](frontend/src/assets/doc/HealthHub-V-ID.png)
@@ -110,13 +110,14 @@ In developing HealthHub, we utilized React for the frontend and Django for the b
 
 Testing was conducted manually to ensure that all features function as expected. This included:
 
-- **Functional Testing**: Verified that users can create, edit, follow, and delete workout programs without issues.
+- **Functional Testing**: Verified that users can login, register, logout.
 - **Responsiveness Testing**: Ensured that HealthHub displays correctly on various devices, from desktops to mobile phones.
-- **User Interaction Testing**: Tested features such as liking, commenting, and following workout programs to ensure smooth user interactions.
 
 ### Known Issues
 
-- **Django Validation**: Some validation issues specific to Django may appear in HTML validation tools but do not impact the functionality.
+- **Deployment Challenges**: We encountered some issues during the deployment process, which required troubleshooting and adjustments to ensure the project successfully deploys.
+- **Creating Workout Programs**: There were difficulties in creating new workout programs from the React frontend, leading to occasional errors that required additional handling.
+- **Loading Workout Programs**: Loading workout programs sometimes faced delays or errors, particularly when fetching data from the backend. These issues are being investigated.
 
 ## Development
 
